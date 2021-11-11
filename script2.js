@@ -38,6 +38,10 @@ let pwLength = document.getElementById("pwLength");
 
 function generatePassword() {
     let selectedParameters = [];
+    if (pwLength.valueAsNumber <= 8) {
+        console.log("Please choose 8 or more characters.");
+        alert("Password length must be at least 8 characters");
+    }
     if (!lowerCheck.checked && !upperCheck.checked && !specialCheck.checked && !numberCheck.checked) {
         console.log("Inside the statement");
         alert("Please choose at least 1 parameter.");
@@ -62,5 +66,3 @@ function generatePassword() {
     }
     return randomArray.join('');
 }
-
-

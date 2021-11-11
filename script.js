@@ -11,14 +11,10 @@ function writePassword() {
 
 // Lowercase alphabet array
 let lowerAlpha = "abcdefghijklmnopqrstuvwxyz".split("");
-console.log(lowerAlpha);
 // Capital alphabet array
 let upperAlpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-console.log(upperAlpha);
 let specialChars = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~".split("");
-console.log(specialChars);
 let numbers = "1234567890".split("");
-console.log(numbers);
 
 let lowerCheck = document.getElementById("lower");
 let upperCheck = document.getElementById("upper");
@@ -55,7 +51,6 @@ function generatePassword() {
     for (let i = 0; i < pwLength.valueAsNumber; i++) {
         let randomNumber = Math.floor(Math.random()*selectedParameters.length);
         randomArray = randomArray.concat(selectedParameters[randomNumber]);
-        console.log(i)
     }
     return randomArray.join('');
 }

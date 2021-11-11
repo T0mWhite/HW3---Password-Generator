@@ -9,9 +9,6 @@ function writePassword() {
   passwordText.value = password;
 }
 
-function generatePassword() {
-  return password;
-}
 
 // Lowercase alphabet array
 
@@ -24,7 +21,25 @@ console.log(specialChars);
 let numbers = "1234567890".split("");
 console.log(numbers);
 
+let lowerCheck = document.getElementById("lower");
+let upperCheck = document.getElementById("upper");
+let numberCheck = document.getElementById("number");
+let specialCheck = document.getElementById("special");
 
+function generatePassword() {
+  return password;
+}
+
+
+// if (upBox.checked === true) {
+//     upperAlpha = true;
+//     if (lwBox.checked === true)
+//     lowerAlpha = true;
+//     if (nmBox.checked === true)
+//     numBer = true;
+//     if (spBox.checked === true)
+//     SpecChar = true; 
+//   }
 
 
 // Add event listener to generate button

@@ -26,6 +26,16 @@ let upperCheck = document.getElementById("upper");
 let numberCheck = document.getElementById("number");
 let specialCheck = document.getElementById("special");
 
+function concatArrays() {
+    if (lowerAlpha && upperAlpha && specialChars && numbers === false) {
+        alert("Please choose at least 1 parameter.");
+        return;
+    } else {
+        
+    }
+}
+
+
 function generatePassword() {
   return password;
 }

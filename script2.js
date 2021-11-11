@@ -7,7 +7,7 @@ function writePassword() {
     var passwordText = document.querySelector("#password");
     
     passwordText.value = password;
-    concatArrays();
+    // concatArrays();
 }
 
 // Lowercase alphabet array
@@ -29,8 +29,9 @@ let pwLength = document.getElementById("pwLength");
 // Creates and empty array to concatenate the checkbox arrays into.
 
 // Function that concatenates an array to the selectedParameters array matching the checkbox parameters if the checkbox is selected. Returns selectedParameters after all possible concatenations are run.
-function concatArrays() {
+function generatePassword() {
     let selectedParameters = [];
+    randomArray = [];
     if (lowerCheck.checked && upperCheck.checked && specialCheck.checked && numberCheck.checked === false) {
         alert("Please choose at least 1 parameter.");
         return;    
@@ -47,19 +48,15 @@ function concatArrays() {
         console.log(numberCheck.checked);
         selectedParameters = selectedParameters.concat(numbers);
     }
-    return selectedParameters;
-}
-
-// Function that establishes a random array. Uses the length of the returned selectedParameters from concatArrays() to generate a random number based on the number of indexes in selectedParameters. Generates the *.length* amount of indexes with random numbers in them.
-function generatePassword() {
-    selectedParameters();
-    randomArray = [];
+    
     for (let i = 0; i < pwLength.valueAsNumber; i++) {
         let randomNumber = Math.floor(Math.random()*selectedParameters.length);
         randomArray = randomArray.concat(selectedParameters[randomNumber]);
     }
     return randomArray.join('');
 }
+
+// Function that establishes a random array. Uses the length of the returned selectedParameters from concatArrays() to generate a random number based on the number of indexes in selectedParameters. Generates the *.length* amount of indexes with random numbers in them.
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);

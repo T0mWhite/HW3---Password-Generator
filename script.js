@@ -30,7 +30,7 @@ let selectedParameters = [];
 concatArrays();
 
 function concatArrays() {
-    if (lowerAlpha && upperAlpha && specialChars && numbers === false) {
+    if (lowerCheck && upperCheck && specialCheck && numberCheck === false) {
         alert("Please choose at least 1 parameter.");
         return;    
     } if (lowerCheck.checked === true) {

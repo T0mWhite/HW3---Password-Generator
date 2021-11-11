@@ -38,14 +38,19 @@ let pwLength = document.getElementById("pwLength");
 
 function generatePassword() {
     let selectedParameters = [];
-    if (pwLength.valueAsNumber <= 8) {
+    let randomArray = [];
+    if (pwLength.valueAsNumber <= 8 || pwLength !== 0) {
         console.log("Please choose 8 or more characters.");
-        alert("Password length must be at least 8 characters");
-    }
-    if (!lowerCheck.checked && !upperCheck.checked && !specialCheck.checked && !numberCheck.checked) {
+        alert("Password length must be at least 8 characters.");
+        return "Password length must be at least 8 characters.";
+    } if (pwLength.valueAsNumber >= 128) {
+        console.log("Please choose 128 or less characters.");
+        alert("Password length must be at least 8 characters.");
+        return "Password length must be at least 8 characters.";
+    } if (!lowerCheck.checked && !upperCheck.checked && !specialCheck.checked && !numberCheck.checked) {
         console.log("Inside the statement");
-        alert("Please choose at least 1 parameter.");
-        return;    
+        alert("Please choose the character types to be included in your password.");
+        return "Please choose the character types to be included in your password.";
     } if (lowerCheck.checked === true) {
         console.log("Lowercase checked: " + lowerCheck.checked);
         selectedParameters = selectedParameters.concat(lowerAlpha);
@@ -62,7 +67,7 @@ function generatePassword() {
 
     for (let i = 0; i < pwLength.valueAsNumber; i++) {
         let randomNumber = Math.floor(Math.random()*selectedParameters.length);
-        let randomArray = randomArray.concat(selectedParameters[randomNumber]);
+        randomArray = randomArray.concat(selectedParameters[randomNumber]);
     }
     return randomArray.join('');
 }

@@ -39,14 +39,14 @@ let pwLength = document.getElementById("pwLength");
 function generatePassword() {
     let selectedParameters = [];
     let randomArray = [];
-    if (pwLength.valueAsNumber < 8 || pwLength === "") {
+    if (pwLength.valueAsNumber < 8) {
         console.log("Please choose 8 or more characters.");
         alert("Password length must be at least 8 characters.");
         return "Password length must be at least 8 characters.";
-    } if (pwLength.valueAsNumber >= 128) {
+    } if (pwLength.valueAsNumber > 128) {
         console.log("Please choose 128 or less characters.");
-        alert("Password length must be at least 8 characters.");
-        return "Password length must be at least 8 characters.";
+        alert("Password length must be less than 129 characters.");
+        return "Password length must be less than 129 characters.";
     } if (!lowerCheck.checked && !upperCheck.checked && !specialCheck.checked && !numberCheck.checked) {
         console.log("Inside the statement");
         alert("Please choose the character types to be included in your password.");
